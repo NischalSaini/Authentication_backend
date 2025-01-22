@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from './routes/authRoutes.js';
 import userRouter from "./routes/userRoutes.js";
+import path from 'path';
 
 const app = express();
 connectDB();
@@ -14,6 +15,10 @@ const allowedOrigins = [
   'http://localhost:5174',
   'https://feauth-abbhf1vtk-nischal-sainis-projects.vercel.app'
 ];
+
+const _dirname = path.dirname("")
+const buildpath = path.join(_dirname,"../client/dist")
+app.use(express.static(buildpath));
 
 app.use(express.json());
 app.use(cookieParser());
