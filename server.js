@@ -8,25 +8,25 @@ import userRouter from "./routes/userRoutes.js";
 import path from 'path';
 
 const app = express();
+const port = process.env.PORT || 4000
 connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'http://localhost:5174',
-  'https://feauth-abbhf1vtk-nischal-sainis-projects.vercel.app'
+  
 ];
 
-const _dirname = path.dirname("")
-const buildpath = path.join(_dirname,"../client/dist")
-app.use(express.static(buildpath));
+
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: allowedOrigins, credentials: true }));
+
+app.listen(port, ()=> console.log(`Server started on PORT: ${port}`));
 
 // API Endpoints
 app.get('/', (req, res) => res.send("API Working fine"));
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 
-export default app; 
+ 
