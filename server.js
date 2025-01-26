@@ -13,7 +13,7 @@ connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://authentication-frontend-d506t9clu-nischal-sainis-projects.vercel.app', 
+  'https://authentication-frontend-l0n5jpqpj-nischal-sainis-projects.vercel.app', 
   'https://authentication-frontend-sand.vercel.app', 
   'https://authentication-frontend-v1s1.onrender.com',
 ];
